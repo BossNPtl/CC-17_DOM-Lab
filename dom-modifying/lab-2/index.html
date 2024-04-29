@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Modifying-Lab-2</title>
+</head>
+
+<body>
+    <!-- จงสร้าง <ul>
+        เขียนคำสั่ง prompt เพื่อรับข้อความ
+        นำข้อความที่ได้มาสร้าง <li> และ เพิ่มเข้าไปใน <ul>
+        เพิ่มไปเรื่อยๆจนกว่าผู้ใช้จะกด Cancel หรือ พิมพ์ข้อความว่าง -->
+        <h2>Test make ul</h2>
+        <p>with java</p>
+        <div class="mark01"></div>
+    <!-- <ul class="mark02">
+        <li>
+            <p>test</p>
+        </li>
+    </ul> -->
+        <div>
+            <p>try try try!</p>
+        </div>
+
+    <script>
+        // let input = prompt("Put it");
+        // let newLi = document.createElement("li");
+        // newLi.textContent = input
+        // let target = document.querySelector(".mark02")
+        // target.append(newLi)
+
+        // do {
+        //     let input = prompt("Put it");
+        //     if (input === null || input === "" || input === "stop") {
+        //         break
+        //     }
+        //     let newLi = document.createElement("li");
+        //     newLi.textContent = input
+        //     let target = document.querySelector(".mark01")
+        //     target.append(newLi)
+        // }   while (true)
+
+        // --------------------------------------
+
+        const newbieUl = document.createElement("ul")
+        let target01 = document.querySelector(".mark01")
+        target01.prepend(newbieUl)
+        while (1) {
+            let text = prompt("Put something");
+            if (text === null || text.trim() === "") break;
+            let newbieLi = document.createElement("li");
+            newbieLi.textContent = text;
+            newbieUl.append(newbieLi);
+        }
+    </script>
+</body>
+
+</html>

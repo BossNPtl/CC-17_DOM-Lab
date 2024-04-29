@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Event</title>
+</head>
+<body>
+
+    <!-- event scorll - -->
+
+    <br>
+    <button>Click Me!</button>
+    <button>Click Me if you can</button>
+
+    <!-- วิธีใส่ event ที่ 1 -->
+    <button onclick="alert('Click Whattt!?!')">Click</button>
+
+    <ul>
+        <li value="John">John</li>
+        <li value="Max">Max</li>
+        <li value="Micheal">Micheal</li>
+        <li value="Jimmy">Jimmy</li>
+        <li value="Joi">Joi</li>
+    </ul>
+    
+    <input type="text" name="" id="tttttest" class="box-02" placeholder="Enter Uppertext" value="">
+
+    <a href="https://google.com">Go to Google</a>
+<!-- 
+    <h4>Sign in di kub</h4>
+    <form action="https://google.co.th/login" method="" enctype="">
+        <label for="">Email: </label>
+        <input type="text" placeholder="Enter your email">
+        <label for="">Password: </label>
+        <input type="password" placeholder="Enter your password">
+         <button>Login</button>    -->
+         <!-- คลิกส่งเพื่อเริ่ม event  -->
+    <!-- </form> -->
+<br><br>
+    <div style="background-color: aquamarine; width: 600px; height: 600px;margin: auto;" id="outer">
+        <div style="background-color: yellow; width: 400px; height: 400px;margin: auto;" id="middle">
+            <div style="background-color: red; width: 200px; height: 200px;margin: auto;" id="inner"></div>
+        </div>
+    </div>
+
+    <img
+     src=""
+      alt=""
+    >
+    <input type="file" class="box-img" multiple>
+    
+    <script>
+        
+        // ------------- img --------------
+
+        const inputImg = document.querySelector('input.box-img')
+        const image = document.querySelector('img')
+        img.addEventListener('click', function () {
+            inputImg.click()
+        })
+
+        // ------------- img --------------
+        
+        // let solidOuter = document
+        outer.addEventListener('click', function () {
+            console.log('Click outer') 
+            // event bubbling คือการทำงานแบบการลอยขึ้น (การที่ object นั้นๆอยู่ซ้อนทับกัน โดยจะ active จากชั้นที่โดนกระทำการและเขยิบออกไปเลื่อยๆ)
+        })
+        middle.addEventListener('click', function () {
+            event.stopPropagation()  // หยุดการทำงานแบบทะลุ (เหมือนการกั้นกำแพงไม่ให้ทะลุชั้นได้)
+            console.log('Click middle')
+        })
+        inner.addEventListener('click', function () {
+            console.log('Click inner')
+        })
+        
+        // const mainTaxt_SignIn = document.querySelector("h4")
+
+        const list = document.querySelectorAll('li')
+
+        for (let li of list) {
+            li.addEventListener('click', function () {
+                console.log(this.innerHTML)
+            })
+        }
+        
+        const button01 = document.querySelector('button')
+
+        // button01.addEventListener('mousedown', function (event) {
+        //     console.log(event)
+        // })
+        // document.body.addEventListener('click', function (event) {
+        //     // console.log(event)
+        //     // console.log(event.target)
+        //     console.log(event.target.value)
+        // })
+
+        const input_02 = document.querySelector('input.box-02');
+
+        // input_02.addEventListener('input', function () {
+        //     console.log('input changed')  // แจ้งเตือนเมื่อมีการแก้ข้อมูล
+        // })
+
+        // input_02.addEventListener('input', function (event) {
+        //     console.log(event.target.value)  // แจ้งเตือนข้อมูลที่ถูกแก้
+        // })
+
+        input_02.addEventListener('keydown', function (event) {
+            console.log(event)
+            if (event.key !== event.key.toUpperCase() && event.key !== 'Backspace') {
+                event.preventDefault()
+            }
+        })
+
+        // document.body.addEventListener('click', function (event) {
+        //     // console.log(event)
+        //     console.log(event.target)
+        //     console.log("----------------")
+        //     console.log(event.currentTarget)
+        // })
+
+        const aTag = document.querySelector('a')
+        aTag.addEventListener('click', function (event) {
+            event.preventDefault(); // preventDefault กันเอาไว้
+            alert('You can\'t leave here') 
+        })
+            
+        const form = document.querySelector('form')
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('You can\'t sent now')
+            // vakidarte if all input valid
+            // all correct => submit form
+            // อาจใช้เพื่อตรวจสอบข้อมูลก่อนที่จะให้ส่งข้อมูล
+            form.submit();
+            // something incorrect => show error message to user
+            // เมื่อตรวจสอบเสร็จจึงเขียนให้มัน submit ตัวเอง
+        })
+        
+
+
+        // วิธีใส่ event ที่ 2   ไม่สามารถใส่ซ้อนหลายๆฟังก์ชั่นได้ หากใส่ซ้อนจะเป็นการ replace มันจะทำงานแค่อันล่าสุด
+        // button01.onclick = function () {
+        //     alert('Click again #2')
+        // }
+
+        // วิธีใส่ event ที่ 2   แบบใส่หลายฟังก์ชั่น
+        // botton.onclick = click1;
+        // botton.onclick = click2;
+
+
+        // วิธีใส่ event ที่ 3   สามารถใส่ฟังก์ชั่นซ้อนได้แล้วให้ทำงานต่อกัน
+        // button01.addEventListener('click', function () {
+        //     alert('Click again #3')
+        // })
+        
+        // วิธีใส่ event ที่ 3   แบบใส่หลายฟังก์ชั่น
+        // button01.addEventListener('click', click1)
+        // button01.addEventListener('click', click2)
+        
+        function click1 () {
+            // handle logic 1
+            alert('Click 1 time')
+        }
+        function click2 () {
+            // handle logic 1
+            alert('Click 2 time')
+        }
+        
+        // ------------------------------------------
+
+        // button01.addEventListener('click', click1)
+        // button01.addEventListener('click', click2)
+
+        setTimeout(() => {
+            // ใช้ setTimeout ตั้งเวลา แล้วใส่ฟังก์ชั่น remove ฟังก์ชั่นของ botton01 ออก
+            button01.removeEventListener('click', click1)
+        }, 5000); // 5000 = 5 วิ
+
+        // document.addEventListener('click', function () {
+        //     alert('Click somewhere')
+        // })
+
+        // button01.addEventListener('click', function () {
+        //     console.log(this);
+        // });
+        // document.body.addEventListener('click', function () {
+        //     console.log(this);
+        // });
+
+
+
+        // .addEventListener
+        // addEventListener(type: "click", listener: (this: Document, ev: MouseEvent) => any, options?: boolean | AddEventListenerOptions | undefined): void
+        // addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions | undefined): void
+    </script>
+
+</body>
+</html>

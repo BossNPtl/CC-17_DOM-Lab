@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Event-Lab02</title>
+</head>
+<body>
+
+    <!-- จงสร้าง Form ที่มี Button สำหรับ submit form และเขียนคำสั่งเพิ่ม Event Handler ลงใน Form เมื่อผู้ใช้กด submit form ให้ Alert คำว่า “Form is submitted” โดยใช้วิธีดังนี้
+    HTML-attribute
+    DOM property
+    Event listener
+    จงเขียนคำสั่งยกเลิก Event Handler -->
+    
+        <form action="">
+            <button type="submit" class="button-sub01" onclick="alert('Form is submitted by HTML')">Click to submit</button>
+        </form>
+        <br>
+        <form action="">
+            <button type="submit" class="button-sub02">Click to submit</button>
+        </form>
+        <br>
+        <form action="">
+            <button type="submit" class="button-sub03">Click to submit</button>
+        </form>
+    
+    <script>
+        // DOM property
+        const button02 = document.querySelector('button.button-sub02')
+        button02.onclick = function () {
+            alert("Form is submutted by DOM property")
+        }
+        // Event listener
+        const button03 = document.querySelector('button.button-sub03')
+        // button03.addEventListener('click', function () {
+        //     alert("Form is submutted by Eventlistener")
+        // })
+        function plan03 () {
+            alert("Form is submutted by Eventlistener")
+        }
+
+        button03.addEventListener('click', plan03)
+
+        // ยกเลิก Event Handler
+
+        const button01 = document.querySelector('button.button-sub01')
+        button01.onclick = null
+
+        button02.onclick = null
+        
+        // button03.removeEventListener('click', click = null)
+        button03.removeEventListener('click', plan03)
+
+    </script>
+
+</body>
+</html>

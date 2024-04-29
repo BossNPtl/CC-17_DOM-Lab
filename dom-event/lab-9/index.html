@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Event-Lab03</title>
+</head>
+<body>
+    <!-- จงสร้าง Input และ Button ดังรูปเมื่อผู้ใช้กรอกเบอร์โทรและกด Check
+    ถ้าผู้ใช้ไม่กรอกให้ขึ้นข้อความ Phone Number is required
+    ถ้าผู้ใช้กรอกค่าที่ไม่ใช่ตัวเลขให้ขึ้นข้อความ Phone Number is invalid
+    ถ้าผู้ใช้กรอกค่าที่มีความยาวไม่เท่ากับ 10 ให้ขึ้นข้อความ Invalid length
+    ถ้ากรอกถูกต้องให้ Alert “Your number is valid” -->
+
+    <style>
+        .colorRed {
+            color: red;
+        }
+        .colorBlue {
+            color: blue;
+        }
+        .borderRed {
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <input type="'text" placeholder="Put your number" class="input01" />
+    <button class="button01">Check</button>
+    <p class="required"></p>
+
+
+    <script>
+
+        const inputNum = document.querySelector('.input01');
+        const buttonCheck = document.querySelector('.button01');
+        const required = document.querySelector('.required');
+        
+        function checkNum () {
+            if (inputNum.value == "") {
+                inputNum.classList.add('borderRed');
+                required.classList.add('colorRed');
+                required.textContent = "Phone Number is required";
+            }
+            else if (isNaN(inputNum.value)) {
+                inputNum.classList.add('borderRed');
+                required.classList.add('colorRed');
+                required.textContent = "Phone Number is invalid";
+            }
+            else if (inputNum.value.length !== 10) {
+                inputNum.classList.add('borderRed');
+                required.classList.add('colorRed');
+                required.textContent = "Invalid length";
+            }
+            else {
+                inputNum.classList.remove('borderRed');
+                required.classList.remove('colorRed');
+                required.classList.add('colorBlue');
+                required.textContent = "Yeah!";
+                alert('Your Number is valid');
+            }
+        }
+        
+        buttonCheck.onclick = checkNum;
+    </script>
+    
+
+
+</body>
+</html>

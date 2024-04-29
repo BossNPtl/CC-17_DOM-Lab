@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Modifying-Lab-4</title>
+    <style>
+        .btn {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- จงเขียนคำสั่งเพื่อเปลี่ยนสีพื้นหลังของ button ให้เป็นสีแดงเมื่อเวลาผ่านไป 3 วินาที หลังจากนั้นอีก 3 วินาทีให้เปลี่ยนสีพื้นหลังกลับมาเหมือนเดิม
+    ใช้วิธีเปลี่ยน property style ของ element object
+    ใช้วิธีเพิ่มลด class -->
+
+    <button class="btn">Submit</button>
+
+
+    <script>
+        // setTimeout(() => document.querySelector("button").classList.add('red'), 3000)
+        setTimeout(() => document.querySelector("button").style.backgroundColor = "red", 3000)
+        setTimeout(() => document.querySelector("button").style.backgroundColor = "aqua", 6000)
+    </script>
+</body>
+
+</html>

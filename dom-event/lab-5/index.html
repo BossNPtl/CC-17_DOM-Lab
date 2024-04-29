@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Event-Lab05</title>
+</head>
+<body>
+    <!-- จงสร้าง <input> และมี attribute ชื่อ name มีค่าเท่ากับ “nickname”
+    จงสร้าง <input> อีกอันให้มี attribute ชื่อ name มีค่าเท่ากับ “job”
+    เมื่อผู้ใช้ click ที่ <input> ให้ console.log ค่า attribute name ของ <input>
+    เมื่อผู้ใช้พิมพ์ค่าลงใน <input> ให้ console.log ค่าที่ผู้ใช้พิมพ์
+    Hint: event.target และ oninput event -->
+
+        <form action="">
+            <input type="text"  id="input01" value="nickname">
+            <input type="text"  id="input02" value="job">
+        </form>
+
+    
+    <script>
+        const box01 = document.querySelector('#input01')
+        const box02 = document.querySelector('#input02')
+        const allBox = document.querySelectorAll('input')
+
+        box01.addEventListener('click', function (event) {
+            console.log(event.target.value);
+        })
+        box02.onclick = (event) => console.log(event.target.value);
+        
+        for (let i in allBox) allBox[i].oninput = (event) => console.log(event.target.value)
+
+        // box01.addEventListener('input', function (event) {
+        //     console.log(event.target.value);
+        // })
+        // box02.oninput = (event) => console.log(event.target.value);
+        
+    </script>
+
+</body>
+</html>

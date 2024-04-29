@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Event-Counter</title>
+</head>
+<body>
+    <button id="decrement">-</button>
+    <span> 1 </span>
+    <button id="increment">+</button>
+
+
+    <script>
+        const minus = document.getElementById('decrement')
+        const add = document.getElementById('increment')
+        const count = document.querySelector('span')
+
+        add.addEventListener('click', function () {
+            let currentCount = +count.textContent;
+            // let newCount = currentCount + 1;
+            // count.textContent = newCount;
+            if (currentCount < 10) {
+            let newCount = currentCount + 1;
+            count.textContent = newCount;
+            }
+        })
+        minus.addEventListener('click', function () {
+            let currentCount = +count.textContent;
+            if (currentCount > 1) {
+            let newCount = currentCount - 1;
+            count.textContent = newCount;
+            }
+        })
+    </script>
+
+</body>
+</html>

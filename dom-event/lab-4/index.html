@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Event-Lab04</title>
+</head>
+<body>
+        <!-- จงสร้างลิงค์ <a> Tag มีข้อความว่า “Google”
+        เมื่อผู้ใช้ click link ให้ขึ้นคำถามว่า “Leave for https://google.com?”
+        ถ้าผู้ใช้กด OK ให้ redirect ไปที่ https://google.com
+        ถ้าผู้ใช้กด Cancel ให้ยกเลิก redirect ไปที่ https://google.com -->
+        
+        <a href="https://google.co.th" id="a1">Google</a>
+        
+        <!-- <a href="#" class="a2">Google</a> -->
+    
+    <script>
+
+        const aTag1 = document.querySelector('#a1');
+        
+        aTag1.onclick = () => confirm("Leave for https://google.com?")
+        
+        // const aTag2 = document.querySelector('.a2');
+
+        // aTag2.addEventListener('click', function () {
+        //     if (confirm("Leave for https://google.com?")) {
+        //         aTag2.setAttribute('href', "https://google.co.th")
+        //     }
+        // })
+    </script>
+
+</body>
+</html>

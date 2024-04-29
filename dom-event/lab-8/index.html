@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Event-Lab03</title>
+</head>
+
+<body>
+    <!-- จงสร้าง Button มีข้อความว่า “Hide”
+    เมื่อผู้ใช้ click button ให้ซ่อนข้อความและเปลี่ยนข้อความบน Button เป็น “Show” เมื่อ click button อีกครั้งให้แสดงข้อความและเปลี่ยนข้อความบน Button เป็น Hide -->
+    <!-- textcontent -->
+
+    <button id="box-01">Hide</button>
+    <p id="hideP" style="visibility: visible;">Lorem ipsum dolor sit amet.</p>
+
+
+    <script>
+
+        const button01 = document.querySelector('#box-01');
+        const text01 = document.querySelector('#hideP')
+
+        let toggleButton = () => button01.textContent == "Hide" ? (button01.textContent = "Show") : (button01.textContent = "Hide");
+
+        let toggleText = () => text01.style.visibility == "visible" ? (text01.style.visibility = "hidden") : (text01.style.visibility = "visible");
+
+        // --------------------------------------
+
+        function toggle() {
+            toggleButton();
+            toggleText();
+        };
+
+        button01.onclick = toggle;
+
+    </script>
+
+</body>
+
+</html>

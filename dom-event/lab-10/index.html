@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM-Event-Lab03</title>
+</head>
+
+<body>
+  <!-- จงสร้าง Label และ Select ดังรูป
+    เมื่อ click <select> ของ Province ให้แสดงรายชื่อจังหวัด
+    เมื่อ click <select> ของ District ให้แสดงอำเภอของจังหวัดที่ถูกเลือก -->
+
+
+  <label for="province">Province: </label>
+  <select id="province">
+    <option label="Phuket"></option>
+    <option label="SongKhla"></option>
+    <option label="Bangkok"></option>
+  </select>
+
+  <label for="district">District: </label>
+  <select id="district">
+    <option label="Mueang Phuket"></option>
+    <option label="Kathu"></option>
+    <option label="Thalang"></option>
+  </select>
+
+
+  <script>
+
+    // const province = ["Phuket", "SongKhla", "Bangkok"]
+    // const district = {
+    //   Phuket: ["Mueang Phuket", "Kathu", "Thalang"],
+    //   Songkhla: ["Mueang Songkra", "Hat Yai", "JaNa", "NaaTaVee"],
+    //   Bangkok: ["Phayathai", "Ari", "Chutujak"],
+    // }
+
+    const province = document.getElementById('province');
+    const district = document.getElementById("district");
+    const provinces = document.querySelectorAll('option');
+
+    province.onchange = () => {
+      for (let el of provinces) {
+        if (el.selected) {
+          if (el.label == "Phuket") {
+            district.innerHTML = '<option label="Mueang Phuket"></option>'
+            district.innerHTML += '<option label="Kathu"></option>'
+            district.innerHTML += '<option label="Thalang"></option>'
+          }
+          else if (el.label == "SongKhla") {
+            district.innerHTML = '<option label="Mueang Songkra"></option>'
+            district.innerHTML += '<option label="Hat Yai"></option>'
+            district.innerHTML += '<option label="JaNa"></option>'
+            district.innerHTML += '<option label="NaaTaVee"></option>'
+          }
+          else if (el.label == "Bangkok") {
+            district.innerHTML = '<option label="Phayathai"></option>'
+            district.innerHTML += '<option label="Ari"></option>'
+            district.innerHTML += '<option label="Chutujak"></option>'
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Event-Lab07</title>
+</head>
+<body>
+    <!-- จงสร้าง Button มีข้อความว่า “Click to hide text”
+    เมื่อผู้ใช้ click button ให้ซ่อน Text -->
+    
+        <p id="hideP">Click to hidden me si ja</p>
+
+        <button id="box-01">BOOM!!</button>
+        <button id="box-02">BOOM!!</button>
+
+    <script>
+
+        const button01 = document.querySelector('#box-01')
+        const button02 = document.querySelector('#box-02')
+        const cutP = document.querySelector('#hideP')
+
+        button01.onclick = () => cutP.setAttribute('hidden', true)
+        button02.addEventListener('click', function () {
+            cutP.style.visibility = "hidden";
+        })
+
+    </script>
+
+</body>
+</html>

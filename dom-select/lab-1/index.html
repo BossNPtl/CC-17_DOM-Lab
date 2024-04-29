@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Select-Lab-1</title>
+</head>
+
+<body>
+    <!-- จงเขียนคำสั่งเพื่อ access <div>, <ul>, <li> ตัวแรก และ <li> ตัวที่สอง -->
+    <div>Users:</div>
+    <ul>
+        <li>John</li>
+        <li>Pete</li>
+    </ul>
+
+
+
+    <script>
+        let firstDiv = document.querySelector("div")
+        let findUl = document.body.querySelector("ul")
+        let findLi = findUl.querySelectorAll("li")
+
+        console.log(firstDiv)
+        console.log(findUl)
+        console.log(findLi[0])
+        console.log(findLi[1])
+    </script>
+</body>
+
+</html>

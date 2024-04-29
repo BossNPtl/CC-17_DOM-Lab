@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Event-Lab12</title>
+</head>
+
+<style>
+    .pass {
+        text-decoration: line-through;
+        color: brown;
+    }
+</style>
+
+<body>
+    <!-- จงสร้าง Todo List ดังรูป
+    เมื่อผู้ใช้ click Add ให้เพิ่มรายการ
+    เมื่อผู้ใช้ click Edit ให้แก้ไขข้อความ
+    เมื่อผู้ใช้ click Del ให้ลบรายการ
+    เมื่อผู้ใช้ click ที่รายการใน List ให้
+    Toggle เส้นที่ขีดค่าข้อความ -->
+
+    <button id="addBtn">Add</button><br><br>
+    <div id="allList"></div>
+
+    <script>
+        const add = document.querySelector('#addBtn');
+        const allList = document.querySelector('#allList');
+        let count = 1;
+
+        function addNewList() {
+            let list = document.createElement('div');
+            let span = document.createElement('span');
+            let edit = document.createElement('button');
+            let del = document.createElement('button');
+
+            span.textContent = `Task ${count}`, count++;
+            edit.textContent = 'edit';
+            del.textContent = 'del';
+
+            list.append(span, edit, del);
+            allList.append(list);
+
+            // span.addEventListener('click', passList);
+            edit.addEventListener('click', editList);
+            del.addEventListener('click', delList);
+        }
+
+        // function passList() {
+
+        // }
+        function editList() {
+            const span = this.previousElementSibling
+            let editedTask = prompt("Edit task name", span.textContent)
+            if (editedTask !== null && editedTask.trim() !== "") {
+                span.textContent = editedTask
+            }
+        }
+        function delList() {
+            const div = this.parentElement
+            div.textContent = "";
+            count--;
+        }
+
+        add.addEventListener('click', addNewList);
+
+    </script>
+
+</body>
+
+</html>
